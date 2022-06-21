@@ -22,21 +22,21 @@
         </ul>
     </div>
 @endif
-   
-<form action="{{ route('categories.store') }}" method="POST">
-    @csrf
-  
-     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Name:</strong>
-                <input type="text" name="name" class="form-control" placeholder="Name">
+
+<div class="row">
+    <div class="col-md-12">
+        <form action="{{ route('categories.store') }}" method="POST">
+            @csrf
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input class="form-control form-control-lg" type="text" name="name" placeholder="Enter Category name" />
             </div>
-        </div>
-               <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+            
+            <div class="text-left mt-3">
                 <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
+            </div>
+        </form>
     </div>
+</div>
    
-</form>
 @endsection
