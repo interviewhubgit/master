@@ -35,6 +35,12 @@
 						</a>
 					</li>
 
+					<li class="sidebar-item active">
+						<a class="sidebar-link" href="/pages">
+							<i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Pages</span>
+						</a>
+					</li>
+
 				</ul>
 
 			</div>
