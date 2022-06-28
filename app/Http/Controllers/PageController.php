@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -27,7 +28,9 @@ class PageController extends Controller
      */
     public function create()
     {
-        return view('pages.create');
+        $categories=Category::all();
+        //dd($categories);
+        return view('pages.create',compact('categories'));
     }
 
     /**
@@ -39,7 +42,7 @@ class PageController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'title' => 'required',
             // 'parent_id' => 'required'
         ]);
       
