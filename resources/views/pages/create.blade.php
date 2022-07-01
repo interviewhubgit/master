@@ -25,7 +25,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <form action="{{ route('pages.store') }}" method="POST">
+        <form action="{{ route('pages.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label class="form-label">Catogery</label>

@@ -19,6 +19,15 @@
                 {{ $page->title }}
             </div>
         </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Title:</strong>
+                <img src="{{url('/')}}/storage/uploads/{{ $page->image }}" style='max-width:300px'>
+            </div>
+        </div>
+
+        
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Description:</strong>

@@ -43,8 +43,21 @@ class PageController extends Controller
     {
         $request->validate([
             'title' => 'required',
+            'file' => 'required|mimes:png,jpg,gif,jpeg|max:4096'
             // 'parent_id' => 'required'
         ]);
+
+
+       //dd($request->file('file'));
+        if($request->file('file')) {
+            $fileName = time().'_'.$request->file->getClientOriginalName(); 
+            $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public'); 
+            $image = time().'_'.$request->file->getClientOriginalName();
+            $file_path = '/storage/' . $filePath;
+
+            $request->request->add(['image' => $image]);
+            $request->request->add(['file_path' => $file_path]);
+        }
       
         Page::create($request->all());
        
@@ -71,22 +84,33 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
-        return view('pages.edit',compact('page'));
+        $categories=Category::all();
+        return view('pages.edit',compact('page','categories'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Page $page)
     {
         $request->validate([
-            'name' => 'required',
+            'title' => 'required',
            // 'parent_id' => 'required',
         ]);
+
+        if($request->file('file')) {
+            $fileName = time().'_'.$request->file->getClientOriginalName(); 
+            $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public'); 
+            $image = time().'_'.$request->file->getClientOriginalName();
+            $file_path = '/storage/' . $filePath;
+
+            $request->request->add(['image' => $image]);
+            $request->request->add(['file_path' => $file_path]);
+        }
       
         $page->update($request->all());
       

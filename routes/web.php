@@ -14,7 +14,12 @@ use App\Http\Controllers\PageController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('categories', CategoryController::class);
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('categories', CategoryController::class);
+});
+
+
 Route::resource('pages', PageController::class);
 
 Route::get('/', function () {

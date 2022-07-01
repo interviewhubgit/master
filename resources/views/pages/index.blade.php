@@ -41,7 +41,7 @@
                         <tr>
                             <td class="d-none d-xl-table-cell">{{ ++$i }}</td>
                             <td class="d-none d-xl-table-cell">{{ $page->title }}</td>
-                            <td class="d-none d-xl-table-cell"><img src="{{ $page->image }}"></td>
+                            <td class="d-none d-xl-table-cell"><img src="{{url('/')}}/storage/uploads/{{ $page->image }}" style='max-width:100px'></td>
                             <td class="d-none d-xl-table-cell">
                                 <form action="{{ route('pages.destroy',$page->id) }}" method="POST">
                 
